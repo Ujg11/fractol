@@ -1,8 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   check_arg.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ojimenez <ojimenez@student.42barcelona.    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/09/27 12:08:59 by ojimenez          #+#    #+#             */
+/*   Updated: 2023/09/27 12:14:11 by ojimenez         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fractol.h"
 
 void	print_init_fractol(void)
 {
-	ft_printf("Debes ejecutar el programa con el nombre del fractal que desees visualizar\n");
+	ft_printf("Debes ejecutar el programa con el nombre");
+	ft_printf("del fractal que desees visualizar\n");
 	ft_printf("Fractales disponibles: Julia y Mandelbrot\n");
 	exit(0);
 }
