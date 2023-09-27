@@ -7,8 +7,18 @@
 # include <string.h>
 # include <limits.h>
 # include <math.h>
-//# include <libft.h>
-# include <mlx.h>
+# include "libft/libft.h"
+# include "mlx/mlx.h"
+
+# define ESC	53
+# define ARROW_LEFT 123
+# define ARROW_RIGHT 124
+# define ARROW_UP 126
+# define ARROW_DOWN 125
+# define A 0
+# define W 13
+# define S 1
+# define D 2
 
 typedef struct		s_screen
 {

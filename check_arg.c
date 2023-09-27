@@ -7,7 +7,7 @@ void	print_init_fractol(void)
 	exit(0);
 }
 
-int	ft_strncmp(char *s1, char *s2)
+int	ft_strcmp(char *s1, char *s2)
 {
 	size_t	i;
 
@@ -27,4 +27,5 @@ int	check_arg(char *name)
 		return (1);
 	else if (ft_strcmp(name, "Mandelbrot") != 0)
 		return (2);
+	return (0);
 }

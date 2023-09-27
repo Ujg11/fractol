@@ -1,10 +1,9 @@
 #include "fractol.h"
 
-int main(int argc, char *argv[])
+int	main(int argc, char *argv[])
 {
 	t_screen	*s;
 	int			fract;
-
 
 	if (argc != 2)
 	{
