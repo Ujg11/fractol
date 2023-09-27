@@ -6,7 +6,7 @@
 #    By: ojimenez <ojimenez@student.42barcelona.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/20 12:55:07 by ojimenez          #+#    #+#              #
-#    Updated: 2023/09/27 13:00:48 by ojimenez         ###   ########.fr        #
+#    Updated: 2023/09/27 13:35:00 by ojimenez         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ LIBFT = $(LIBFT_PATH)/libft.a
 MLX_PATH = ./mlx
 MLX = $(MLX_PATH)/libmlx.a
 
-OBJECTS = main.o init_mlx.o check_arg.o
+OBJECTS = main.o init_mlx.o check_arg.o draw_fractol.o
 
 all: ${NAME}
 
@@ -33,7 +33,7 @@ $(MLX):
 
 $(NAME): $(OBJECTS) $(LIBFT) $(MLX) Makefile
 	$(CC) $(CFLAGS) -o $(NAME) $(OBJECTS) -Ilibft/ -Llibft/ -lft \
-	-Imlx/ -Lmlx/ -lmlx -framework OpenGL -framework AppKit
+	-Imlx/ -Lmlx/ -lmlx -framework OpenGL -framework AppKit -lm
 	@printf "\n$(COLOR)$(KAOMOJI_SUCCESS) Successfully compiled!$(COLOR_RESET)"
 
 %.o: %.c

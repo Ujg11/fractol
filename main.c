@@ -6,7 +6,7 @@
 /*   By: ojimenez <ojimenez@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 12:08:35 by ojimenez          #+#    #+#             */
-/*   Updated: 2023/09/27 12:39:59 by ojimenez         ###   ########.fr       */
+/*   Updated: 2023/09/27 15:01:03 by ojimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	main(int argc, char *argv[])
 {
-	t_screen	*s;
+	t_fractal	*f;
 	int			fract;
 
 	if (argc != 2)
@@ -23,8 +23,10 @@ int	main(int argc, char *argv[])
 		return (0);
 	}
 	fract = check_arg(argv[1]);
-	s = (t_screen *)malloc(sizeof(t_screen));
-	if (s == NULL)
+	if (fract == 0)
 		return (0);
-	init_mlx(s, argv[1], fract);
+	f = (t_fractal *)malloc(sizeof(t_fractal));
+	if (f == NULL)
+		return (0);
+	init_mlx(f, argv[1], fract);
 }
