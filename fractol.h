@@ -51,12 +51,12 @@ typedef struct s_fractal
 
 //check_arg.c
 void	print_init_fractol(void);
-int		check_arg(char *name);
+int		check_arg(char **param);
 
 //init_mlx.c
-void	init_mlx(t_fractal *s, char *name, int fract);
+void	init_mlx(t_fractal *f, char **params, int fract);
 
 //draw_fractol.c
-void	draw_fractal(t_fractal *s, int fact);
+void	draw_fractal(t_fractal *f, int fract, char **params);
 
 #endif

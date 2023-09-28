@@ -12,7 +12,7 @@
 
 #include "fractol.h"
 
-void	draw_julia(t_fractal *f)
+void	draw_julia(t_fractal *f, char **params)
 {
 	
 }
@@ -32,10 +32,14 @@ void	draw_mandelbrot(t_fractal *f)
 	while (++i < f->max_iterations)
 	{
 		x_tmp = f->zx * f->zx - f->zy * f->zy + f->cx;
+		f->zy = 2. * f->zx * f->zy + f->cy;
+		f->zx = x_tmp;
+		if (f->zx * f->zx + f->zy * f->zy >= __DBL_MAX__)
+			break ;
 	}
 }
 
-void	draw_fractal(t_fractal *f, int fract)
+void	draw_fractal(t_fractal *f, int fract, char **params)
 {
 	f->x = 0;
 	f->y = 0;
@@ -44,7 +48,7 @@ void	draw_fractal(t_fractal *f, int fract)
 		while (f->y < 1080)
 		{
 			if (fract == 1)
-				draw_julia(f);
+				draw_julia(f, params);
 			else if (fract == 2)
 				draw_mandelbrot(f);
 			f->y++;
