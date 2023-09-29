@@ -6,7 +6,7 @@
 /*   By: ojimenez <ojimenez@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 13:24:17 by ojimenez          #+#    #+#             */
-/*   Updated: 2023/09/29 15:43:11 by ojimenez         ###   ########.fr       */
+/*   Updated: 2023/09/29 16:01:07 by ojimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void	draw_mandelbrot(t_fractal *f)
 	}
 	else
 	{
-		mlx_pixel_put(f->mlx, f->win, f->x, f->y, (color << 16) | (color << 8) | color);
+		//mlx_pixel_put(f->mlx, f->win, f->x, f->y, (color << 16) | (color << 8) | color);
 		mlx_pixel_put(f->mlx, f->win, f->x, f->y, 11111);
 	}
 }
