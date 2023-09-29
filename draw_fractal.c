@@ -6,15 +6,16 @@
 /*   By: ojimenez <ojimenez@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 13:24:17 by ojimenez          #+#    #+#             */
-/*   Updated: 2023/09/27 15:35:38 by ojimenez         ###   ########.fr       */
+/*   Updated: 2023/09/29 15:43:11 by ojimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-void	draw_julia(t_fractal *f)
+void	draw_julia(t_fractal *f, char **params)
 {
-	
+	(void)f;
+	(void)params;
 }
 
 // De la formula varia la C y Z0 = 0
@@ -27,15 +28,39 @@ void	draw_mandelbrot(t_fractal *f)
 	i = 0;
 	f->zx = 0.0;
 	f->zy = 0.0;
+	f->zoom = 1;
+	int color = 0;
 	f->cx = f->x / f->zoom;
 	f->cy = f->y / f->zoom;
+	double	max_im = -2.0 + (2.0 - (-2.0));
+
+	f->max_iterations = 100;
 	while (++i < f->max_iterations)
 	{
+		f->cx = (f->x - 1080 / 2.0) / (0.5 * f->zoom * 1080);
+		f->cy = (f->y - 1080 / 2.0) / (0.5 * f->zoom * 1080);
+		
+		f->cx = -2.0 + (double)f->x * (2.0 - (-2.0)) / 1000;
+		f->cy = max_im + (double)f->y * (-2.0 - 2.0) / 1000;
+		
 		x_tmp = f->zx * f->zx - f->zy * f->zy + f->cx;
+		f->zy = 2. * f->zx * f->zy + f->cy;
+		f->zx = x_tmp;
+		if (f->zx * f->zx + f->zy * f->zy >= 4)
+			break ;
+	}
+	if (i == f->max_iterations)
+	{
+		mlx_pixel_put(f->mlx, f->win, f->x, f->y, 0);
+	}
+	else
+	{
+		mlx_pixel_put(f->mlx, f->win, f->x, f->y, (color << 16) | (color << 8) | color);
+		mlx_pixel_put(f->mlx, f->win, f->x, f->y, 11111);
 	}
 }
 
-void	draw_fractal(t_fractal *f, int fract)
+void	draw_fractal(t_fractal *f, int fract, char **params)
 {
 	f->x = 0;
 	f->y = 0;
@@ -44,7 +69,7 @@ void	draw_fractal(t_fractal *f, int fract)
 		while (f->y < 1080)
 		{
 			if (fract == 1)
-				draw_julia(f);
+				draw_julia(f, params);
 			else if (fract == 2)
 				draw_mandelbrot(f);
 			f->y++;
@@ -52,10 +77,22 @@ void	draw_fractal(t_fractal *f, int fract)
 		f->x++;
 		f->y = 0;
 	}
-	mlx_put_image_to_window(f->mlx, f->win, f->imag, 0, 0);
+	//mlx_put_image_to_window(f->mlx, f->win, f->imag, 0, 0);
 }
 
-/*void    draw_fractol(t_screen *s, int fract)
+/*int color = 0;  // Inicialización con color negro (todos los componentes en 0)
+
+int red = 255;    // Valor de componente de rojo
+int green = 128;  // Valor de componente de verde
+int blue = 0;     // Valor de componente de azul
+
+// Ajusta los componentes de color en el número de 24 bits
+color |= (red << 16);    // Agrega el componente rojo
+color |= (green << 8);   // Agrega el componente verde
+color |= blue;           // Agrega el componente azul*/
+
+
+/*void	draw_fractal(t_fractal *s, int fract)
 {
 	(void)fract;
 	double radius = 100.0;  // Radio del círculo
@@ -75,4 +112,5 @@ void	draw_fractal(t_fractal *f, int fract)
 
 		angle += 0.01;  // Aumenta el ángulo en pequeños incrementos
 	}
-}*/
+}
+*/

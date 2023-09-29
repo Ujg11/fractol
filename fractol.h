@@ -6,7 +6,7 @@
 /*   By: ojimenez <ojimenez@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 12:11:47 by ojimenez          #+#    #+#             */
-/*   Updated: 2023/09/27 15:26:28 by ojimenez         ###   ########.fr       */
+/*   Updated: 2023/09/29 15:26:43 by ojimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@
 
 typedef struct s_fractal
 {
-	int				x;
+	double			x;
 	int				y;
 	double			zx;
 	double			zy;
@@ -51,12 +51,12 @@ typedef struct s_fractal
 
 //check_arg.c
 void	print_init_fractol(void);
-int		check_arg(char *name);
+int		check_arg(char **param, int argc);
 
 //init_mlx.c
-void	init_mlx(t_fractal *s, char *name, int fract);
+void	init_mlx(t_fractal *f, char **params, int fract);
 
 //draw_fractol.c
-void	draw_fractal(t_fractal *s, int fact);
+void	draw_fractal(t_fractal *f, int fract, char **params);
 
 #endif
