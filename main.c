@@ -6,7 +6,7 @@
 /*   By: ojimenez <ojimenez@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 12:08:35 by ojimenez          #+#    #+#             */
-/*   Updated: 2023/09/29 16:02:29 by ojimenez         ###   ########.fr       */
+/*   Updated: 2023/09/29 16:04:29 by ojimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,6 @@ int	main(int argc, char *argv[])
 		return (0);
 	}
 	fract = check_arg(argv, argc);
-	fract = check_arg(argv);
-	if (fract == 0)
-		return (0);
 	f = (t_fractal *)malloc(sizeof(t_fractal));
 	if (f == NULL)
 		return (0);
