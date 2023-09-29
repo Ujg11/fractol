@@ -6,11 +6,9 @@
 /*   By: ojimenez <ojimenez@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 12:08:59 by ojimenez          #+#    #+#             */
-/*   Updated: 2023/09/29 15:59:33 by ojimenez         ###   ########.fr       */
+/*   Updated: 2023/09/29 17:30:26 by ojimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "fractol.h"
 
 #include "fractol.h"
 

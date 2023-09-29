@@ -6,7 +6,7 @@
 /*   By: ojimenez <ojimenez@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 12:11:47 by ojimenez          #+#    #+#             */
-/*   Updated: 2023/09/29 16:02:47 by ojimenez         ###   ########.fr       */
+/*   Updated: 2023/09/29 18:10:35 by ojimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,9 @@
 # include "mlx/mlx.h"
 
 # define ESC	53
+# define WIDTH 1080
+# define HEIGHT 1080
+
 # define ARROW_LEFT 123
 # define ARROW_RIGHT 124
 # define ARROW_UP 126
@@ -31,6 +34,15 @@
 # define W 13
 # define S 1
 # define D 2
+
+typedef struct	s_imag
+{
+	void	*imag_ptr;// Puntero a la imagen
+	char	*data;// Datos de la imagen (bits)
+	int		size_l;// Tamaño de línea (número de bytes en una línea de la imagen)
+	int		bpp;// Bits por píxel
+	int		endian;// Endian
+}	t_imag;
 
 typedef struct s_fractal
 {
@@ -47,6 +59,7 @@ typedef struct s_fractal
 	void			*mlx;
 	void			*win;
 	void			*imag;
+//	t_imag			*imag;
 }	t_fractal;
 
 //check_arg.c
@@ -57,6 +70,8 @@ int		check_arg(char **param, int argc);
 void	init_mlx(t_fractal *f, char **params, int fract);
 
 //draw_fractol.c
-void	draw_fractal(t_fractal *f, int fract, char **params);
+void	draw_fractal(t_fractal *f, t_imag *imag, int fract, char **params);
+//put_colors.c
+void	put_color_to_pixel(t_fractal *f, t_imag *imag, int color);
 
 #endif

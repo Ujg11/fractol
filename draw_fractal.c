@@ -6,7 +6,7 @@
 /*   By: ojimenez <ojimenez@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 13:24:17 by ojimenez          #+#    #+#             */
-/*   Updated: 2023/09/29 16:05:12 by ojimenez         ###   ########.fr       */
+/*   Updated: 2023/09/29 18:13:44 by ojimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,30 +19,30 @@ void	draw_julia(t_fractal *f, char **params)
 }
 
 // De la formula varia la C y Z0 = 0
-void	draw_mandelbrot(t_fractal *f)
+void	draw_mandelbrot(t_fractal *f, t_imag *imag)
 {
 	int		i;
 	double	x_tmp;
+	double	max_im;
 
 	f->name = "Mandelbrot";
 	i = 0;
 	f->zx = 0.0;
 	f->zy = 0.0;
 	f->zoom = 1;
-	//int color = 0;
 	f->cx = f->x / f->zoom;
 	f->cy = f->y / f->zoom;
-	double	max_im = -2.0 + (2.0 - (-2.0));
-
+	max_im = -2.0 + (2.0 - (-2.0));
+	(void)imag;
 	f->max_iterations = 100;
 	while (++i < f->max_iterations)
 	{
-		f->cx = (f->x - 1080 / 2.0) / (0.5 * f->zoom * 1080);
-		f->cy = (f->y - 1080 / 2.0) / (0.5 * f->zoom * 1080);
-		
-		f->cx = -2.0 + (double)f->x * (2.0 - (-2.0)) / 1000;
-		f->cy = max_im + (double)f->y * (-2.0 - 2.0) / 1000;
-		
+		f->cx = (f->x - WIDTH / 2.0) / (0.5 * f->zoom * WIDTH);
+		f->cy = (f->y - HEIGHT / 2.0) / (0.5 * f->zoom * HEIGHT);
+
+		f->cx = -2.0 + (double)f->x * (2.0 - (-2.0)) / WIDTH;
+		f->cy = max_im + (double)f->y * (-2.0 - 2.0) / HEIGHT;
+
 		x_tmp = f->zx * f->zx - f->zy * f->zy + f->cx;
 		f->zy = 2. * f->zx * f->zy + f->cy;
 		f->zx = x_tmp;
@@ -51,16 +51,16 @@ void	draw_mandelbrot(t_fractal *f)
 	}
 	if (i == f->max_iterations)
 	{
-		mlx_pixel_put(f->mlx, f->win, f->x, f->y, 0);
+		mlx_pixel_put(f->mlx, f->win, f->x, f->y, 555555555);
 	}
 	else
 	{
-		//mlx_pixel_put(f->mlx, f->win, f->x, f->y, (color << 16) | (color << 8) | color);
-		mlx_pixel_put(f->mlx, f->win, f->x, f->y, 11111);
+		//put_color_to_pixel(f, imag, (f->color * i));
+		mlx_pixel_put(f->mlx, f->win, f->x, f->y, 1111111);
 	}
 }
 
-void	draw_fractal(t_fractal *f, int fract, char **params)
+void	draw_fractal(t_fractal *f, t_imag *imag, int fract, char **params)
 {
 	f->x = 0;
 	f->y = 0;
@@ -71,7 +71,7 @@ void	draw_fractal(t_fractal *f, int fract, char **params)
 			if (fract == 1)
 				draw_julia(f, params);
 			else if (fract == 2)
-				draw_mandelbrot(f);
+				draw_mandelbrot(f, imag);
 			f->y++;
 		}
 		f->x++;

@@ -6,22 +6,21 @@
 #    By: ojimenez <ojimenez@student.42barcelona.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/20 12:55:07 by ojimenez          #+#    #+#              #
-#    Updated: 2023/09/29 15:39:04 by ojimenez         ###   ########.fr        #
+#    Updated: 2023/09/29 17:42:52 by ojimenez         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = fractol
 
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror 
-#-fsanitize=address -g
+CFLAGS = -Wall -Wextra -Werror -fsanitize=address -g
 LIBFT_PATH = ./libft
 LIBFT = $(LIBFT_PATH)/libft.a
 
 MLX_PATH = ./mlx
 MLX = $(MLX_PATH)/libmlx.a
 
-OBJECTS = main.o init_mlx.o check_arg.o draw_fractal.o
+OBJECTS = main.o init_mlx.o check_arg.o draw_fractal.o put_colors.o
 
 all: ${NAME}
 
