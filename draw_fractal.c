@@ -6,7 +6,7 @@
 /*   By: ojimenez <ojimenez@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 13:24:17 by ojimenez          #+#    #+#             */
-/*   Updated: 2023/09/29 16:01:07 by ojimenez         ###   ########.fr       */
+/*   Updated: 2023/09/29 16:05:12 by ojimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	draw_mandelbrot(t_fractal *f)
 	f->zx = 0.0;
 	f->zy = 0.0;
 	f->zoom = 1;
-	int color = 0;
+	//int color = 0;
 	f->cx = f->x / f->zoom;
 	f->cy = f->y / f->zoom;
 	double	max_im = -2.0 + (2.0 - (-2.0));
