@@ -6,7 +6,7 @@
 /*   By: ojimenez <ojimenez@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 13:24:17 by ojimenez          #+#    #+#             */
-/*   Updated: 2023/09/29 18:13:44 by ojimenez         ###   ########.fr       */
+/*   Updated: 2023/10/04 13:42:56 by ojimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,25 +23,24 @@ void	draw_mandelbrot(t_fractal *f, t_imag *imag)
 {
 	int		i;
 	double	x_tmp;
-	double	max_im;
 
-	f->name = "Mandelbrot";
 	i = 0;
 	f->zx = 0.0;
 	f->zy = 0.0;
-	f->zoom = 1;
+	f->zoom = 5;
 	f->cx = f->x / f->zoom;
 	f->cy = f->y / f->zoom;
-	max_im = -2.0 + (2.0 - (-2.0));
 	(void)imag;
 	f->max_iterations = 100;
 	while (++i < f->max_iterations)
 	{
-		f->cx = (f->x - WIDTH / 2.0) / (0.5 * f->zoom * WIDTH);
-		f->cy = (f->y - HEIGHT / 2.0) / (0.5 * f->zoom * HEIGHT);
+		//f->cx = (f->x - WIDTH / 2.0) / (0.5 * f->zoom * WIDTH);
+		//f->cy = (f->y - HEIGHT / 2.0) / (0.5 * f->zoom * HEIGHT);
+		f->cx = (f->x - WIDTH / 2.0);
+		f->cy = (f->y - HEIGHT / 2.0);
 
 		f->cx = -2.0 + (double)f->x * (2.0 - (-2.0)) / WIDTH;
-		f->cy = max_im + (double)f->y * (-2.0 - 2.0) / HEIGHT;
+		f->cy = 2.0 + (double)f->y * (-2.0 - 2.0) / HEIGHT;
 
 		x_tmp = f->zx * f->zx - f->zy * f->zy + f->cx;
 		f->zy = 2. * f->zx * f->zy + f->cy;

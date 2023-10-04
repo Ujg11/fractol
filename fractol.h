@@ -6,7 +6,7 @@
 /*   By: ojimenez <ojimenez@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 12:11:47 by ojimenez          #+#    #+#             */
-/*   Updated: 2023/09/29 18:10:35 by ojimenez         ###   ########.fr       */
+/*   Updated: 2023/10/04 12:30:08 by ojimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,11 +55,12 @@ typedef struct s_fractal
 	int				max_iterations;
 	int				color;
 	double			zoom;
-	char			*name;
+	int				fract;
+	char			**params;
 	void			*mlx;
 	void			*win;
 	void			*imag;
-//	t_imag			*imag;
+	t_imag			*timag;
 }	t_fractal;
 
 //check_arg.c
@@ -67,7 +68,7 @@ void	print_init_fractol(void);
 int		check_arg(char **param, int argc);
 
 //init_mlx.c
-void	init_mlx(t_fractal *f, char **params, int fract);
+void	init_mlx(t_fractal *f);
 
 //draw_fractol.c
 void	draw_fractal(t_fractal *f, t_imag *imag, int fract, char **params);

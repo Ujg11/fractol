@@ -6,7 +6,7 @@
 /*   By: ojimenez <ojimenez@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 12:08:59 by ojimenez          #+#    #+#             */
-/*   Updated: 2023/09/29 17:30:26 by ojimenez         ###   ########.fr       */
+/*   Updated: 2023/10/04 12:39:01 by ojimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ int	check_arg(char **param, int argc)
 	if (ft_strcmp(param[1], "Julia") != 0
 		&& ft_strcmp(param[1], "Mandelbrot") != 0)
 		print_init_fractol();
-	if (ft_strcmp(param[1], "Mandelbrot") == 0)
+	else if (ft_strcmp(param[1], "Mandelbrot") == 0 && argc == 2)
 		return (2);
 	else if (ft_strcmp(param[1], "Julia") == 0 && argc != 4)
 		print_init_fractol();
@@ -64,5 +64,7 @@ int	check_arg(char **param, int argc)
 		if (is_digit(param[2]) && is_digit(param[3]))
 			return (1);
 	}
+	else
+		print_init_fractol();
 	return (0);
 }
