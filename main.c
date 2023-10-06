@@ -28,5 +28,7 @@ int	main(int argc, char *argv[])
 	if (f == NULL)
 		return (0);
 	f->params = argv;
+	f->zoom = 0;
+	f->max_iterations = MAX_ITERATIONS;
 	init_mlx(f);
 }

@@ -27,20 +27,20 @@ void	draw_mandelbrot(t_fractal *f, t_imag *imag)
 	i = 0;
 	f->zx = 0.0;
 	f->zy = 0.0;
-	f->zoom = 5;
-	f->cx = f->x / f->zoom;
-	f->cy = f->y / f->zoom;
+	//f->cx = f->x / f->zoom;
+	//f->cy = f->y / f->zoom;
+	f->cx = -2.0 + (double)f->x * (2.0 - (-2.0)) / WIDTH;
+	f->cy = 2.0 + (double)f->y * (-2.0 - 2.0) / HEIGHT;
 	(void)imag;
-	f->max_iterations = 100;
 	while (++i < f->max_iterations)
 	{
 		//f->cx = (f->x - WIDTH / 2.0) / (0.5 * f->zoom * WIDTH);
 		//f->cy = (f->y - HEIGHT / 2.0) / (0.5 * f->zoom * HEIGHT);
-		f->cx = (f->x - WIDTH / 2.0);
-		f->cy = (f->y - HEIGHT / 2.0);
+		//f->cx = (f->x - WIDTH / 2.0);
+		//f->cy = (f->y - HEIGHT / 2.0);
 
-		f->cx = -2.0 + (double)f->x * (2.0 - (-2.0)) / WIDTH;
-		f->cy = 2.0 + (double)f->y * (-2.0 - 2.0) / HEIGHT;
+		//f->cx = -2.0 + (double)f->x * (2.0 - (-2.0)) / WIDTH;
+		//f->cy = 2.0 + (double)f->y * (-2.0 - 2.0) / HEIGHT;
 
 		x_tmp = f->zx * f->zx - f->zy * f->zy + f->cx;
 		f->zy = 2. * f->zx * f->zy + f->cy;

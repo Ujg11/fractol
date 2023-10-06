@@ -23,6 +23,7 @@
 # include "mlx/mlx.h"
 
 # define ESC	53
+# define MAX_ITERATIONS 100
 # define WIDTH 1080
 # define HEIGHT 1080
 
