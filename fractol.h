@@ -6,7 +6,7 @@
 /*   By: ojimenez <ojimenez@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 12:11:47 by ojimenez          #+#    #+#             */
-/*   Updated: 2023/10/04 12:30:08 by ojimenez         ###   ########.fr       */
+/*   Updated: 2023/10/06 17:56:10 by ojimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ typedef struct	s_imag
 
 typedef struct s_fractal
 {
-	double			x;
+	int				x;
 	int				y;
 	double			zx;
 	double			zy;
@@ -72,7 +72,9 @@ int		check_arg(char **param, int argc);
 void	init_mlx(t_fractal *f);
 
 //draw_fractol.c
-void	draw_fractal(t_fractal *f, t_imag *imag, int fract, char **params);
+void	draw_fractal(t_fractal *f, int fract, char **params);
+void	recalculate_fract(t_fractal *f, double zoom, int x, int y);
+
 //put_colors.c
 void	put_color_to_pixel(t_fractal *f, t_imag *imag, int color);
 

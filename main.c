@@ -6,7 +6,7 @@
 /*   By: ojimenez <ojimenez@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 12:08:35 by ojimenez          #+#    #+#             */
-/*   Updated: 2023/10/04 12:34:51 by ojimenez         ###   ########.fr       */
+/*   Updated: 2023/10/06 18:34:54 by ojimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	main(int argc, char *argv[])
 	if (f == NULL)
 		return (0);
 	f->params = argv;
-	f->zoom = 0;
+	f->zoom = 1;
 	f->max_iterations = MAX_ITERATIONS;
 	init_mlx(f);
 }
