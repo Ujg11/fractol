@@ -6,7 +6,7 @@
 #    By: ojimenez <ojimenez@student.42barcelona.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/20 12:55:07 by ojimenez          #+#    #+#              #
-#    Updated: 2023/09/29 17:42:52 by ojimenez         ###   ########.fr        #
+#    Updated: 2023/10/13 16:50:25 by ojimenez         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ LIBFT = $(LIBFT_PATH)/libft.a
 MLX_PATH = ./mlx
 MLX = $(MLX_PATH)/libmlx.a
 
-OBJECTS = main.o init_mlx.o check_arg.o draw_fractal.o put_colors.o
+OBJECTS = main.o init_mlx.o check_arg.o draw_fractal.o put_colors.o utils.o
 
 all: ${NAME}
 
