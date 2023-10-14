@@ -6,7 +6,7 @@
 /*   By: ojimenez <ojimenez@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 12:11:47 by ojimenez          #+#    #+#             */
-/*   Updated: 2023/10/13 16:55:35 by ojimenez         ###   ########.fr       */
+/*   Updated: 2023/10/14 17:29:33 by ojimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,27 +22,18 @@
 # include "libft/libft.h"
 # include "mlx/mlx.h"
 
-# define ESC	53
+# define ESC 53
 # define MAX_ITERATIONS 100
-# define SIZE 1080
+# define SIZE 900
 
-
-# define ARROW_LEFT 123
-# define ARROW_RIGHT 124
+# define ARROW_LEFT 124
+# define ARROW_RIGHT 123
 # define ARROW_UP 126
 # define ARROW_DOWN 125
 # define A 0
 # define W 13
 # define S 1
 # define D 2
-
-/*typedef struct	s_imag
-{
-	char	*data;// Datos de la imagen (bits)
-	int		size_l;// Tamaño de línea (número de bytes en una línea de la imagen)
-	int		bpp;// Bits por píxel
-	int		endian;// Endian
-}	t_imag;*/
 
 typedef struct s_fractal
 {
@@ -55,6 +46,8 @@ typedef struct s_fractal
 	int				color;
 	double			zoom;
 	int				fract;
+	float			offset_x;
+	float			offset_y;
 	char			**params;
 	void			*mlx;
 	void			*win;
@@ -71,6 +64,7 @@ int		check_arg(char **param, int argc);
 
 //init_mlx.c
 void	init_mlx(t_fractal *f);
+int		fr_destroy(t_fractal *f);
 
 //draw_fractol.c
 void	draw_fractal(t_fractal *f, int fract, char **params);

@@ -6,7 +6,7 @@
 /*   By: ojimenez <ojimenez@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 12:09:16 by ojimenez          #+#    #+#             */
-/*   Updated: 2023/10/13 16:41:36 by ojimenez         ###   ########.fr       */
+/*   Updated: 2023/10/14 17:56:43 by ojimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,21 @@ int	mouse_scroll(int param, int x, int y, t_fractal *f)
 	return (0);
 }
 
+int	arrow_move(int key, t_fractal *f)
+{
+	if (key == ARROW_LEFT)
+		f->offset_x += 0.1;
+	if (key == ARROW_RIGHT)
+		f->offset_x -= 0.1;
+	if (key == ARROW_UP)
+		f->offset_y += 0.1;
+	if (key == ARROW_DOWN)
+		f->offset_y -= 0.1;
+	mlx_clear_window(f->mlx, f->win);
+	draw_fractal(f, f->fract, f->params);
+	return (0);
+}
+
 void	init_mlx(t_fractal *f)
 {
 	f->mlx = mlx_init();
@@ -62,5 +77,6 @@ void	init_mlx(t_fractal *f)
 	mlx_hook(f->win, 17, 0, fr_destroy, f);
 	mlx_hook(f->win, 2, 0, fr_read_keys_finish, f);
 	mlx_hook(f->win, 4, 0, mouse_scroll, f);
+	mlx_key_hook(f->win, arrow_move, f);
 	mlx_loop(f->mlx);
 }

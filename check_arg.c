@@ -6,7 +6,7 @@
 /*   By: ojimenez <ojimenez@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 12:08:59 by ojimenez          #+#    #+#             */
-/*   Updated: 2023/10/13 16:20:04 by ojimenez         ###   ########.fr       */
+/*   Updated: 2023/10/14 18:10:30 by ojimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,15 +35,21 @@ int	ft_strcmp(char *s1, char *s2)
 int	is_digit(char *s)
 {
 	int	i;
+	int	flag;
 
 	i = 0;
+	flag = 0;
 	if (s[0] == '-' || s[0] == '+')
 		i++;
 	if (!s[0])
 		return (0);
 	while (s[i])
 	{
-		if (s[i] < '0' || s[i] > '9')
+		if (s[i] == '.' && flag == 1)
+			print_init_fractol();
+		else if (s[i] == '.' && flag == 0)
+			flag = 1;
+		else if (s[i] < '0' || s[i] > '9')
 			print_init_fractol();
 		i++;
 	}
@@ -61,7 +67,7 @@ int	check_arg(char **param, int argc)
 		print_init_fractol();
 	else if (ft_strcmp(param[1], "Julia") == 0 && argc == 4)
 	{
-		if (ft_strtod(param[2]) != 0 && ft_strtod(param[3]) != 0)
+		if (is_digit(param[2]) && is_digit(param[3]))
 			return (1);
 	}
 	else
